@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var x = 10+Math.round(5*Math.random());
+        document.write("Giá trị của số ngẫu nhiên là: "+x+"<br>");
+        var a = prompt("Nhập số a: ");
+        if(a==x){
+            document.write("Bạn đã đoán đúng số bí mật");
+        }else if(a>x){
+            document.write("Bạn đã đoán lớn hơn số bí mật");
+        }else{
+            document.write("Bạn đã đoán nhỏ hơn số bí mật");
+        }
+    </script>
+</body>
+</html>

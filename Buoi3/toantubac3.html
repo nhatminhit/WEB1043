@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let age = 15;
+        let message = age>18?"Đủ tuổi":"Chưa đủ tuổi";
+        console.log(message);
+        let thu = Number(prompt("Nhập vào thứ trong tuần"));
+        // dùng switch case để kiểm tra giá trị nhập vào và đưa ra thông báo
+        switch(thu){
+            case 2: 
+            console.log("Hôm nay là thứ 2");
+            break;
+            case 3: 
+            console.log("Hôm nay là thứ 3");
+            break;
+            case 4: 
+            console.log("Hôm nay là thứ 4");
+            break;
+            case 5: 
+            console.log("Hôm nay là thứ 5");
+            break;
+            case 6: 
+            console.log("Hôm nay là thứ 6");
+            break;
+            case 7: 
+            console.log("Hôm nay là thứ 7");
+            break;
+            case 8: 
+            console.log("Hôm nay là chủ nhật");
+            break;
+            default:
+                console.log("Dữ liệu nhập vào ko thỏa mãn");
+                break;
+        }
+        //khởi tạo mảng tên
+        let tenArr = ["Anh","Bảo","Chung","Duy"];
+        //1. vòng lặp For - duyệt từ đầu mảng tới cuối mảng
+        for(let i = 0;i<tenArr.length;i++){
+            //lấy ta phần tử tại vị trí i
+            console.log(tenArr[i]);
+        }
+        // in giá trị từ cuối mảng về đầu mảng
+        for(let i = tenArr.length-1;i>=0;i--)
+        {
+            //In phần tử tại vị trí i từ cuối về đầu
+            console.log(tenArr[i]);
+        }
+        // Vòng lặp For of - duyệt từng phần tử trong mảng
+         for(let item of tenArr)
+         {
+            //item là từng phần tử trong mảng tenArr
+            console.log("In phần tử dùng for of "+ item);
+         }
+         //vòng lặp while
+         console.log("dùng while")
+         let i = 0;
+         while(i<tenArr.length)
+         {
+            console.log(tenArr[i]);
+            i++; // tăng thêm 1 đơn vị để duyệt phần tử tiếp theo
+         }
+         // vòng lặp do while
+         console.log("Do while");
+         let i2 = 0;
+         do{
+            // do while sẽ thực hiện ít nhất 1 lần trước khi kiểm tra điều kiện
+            console.log(tenArr[i2]);
+            i2++; // tăng thêm 1
+         } while(i2<tenArr.length);
+         //-------------- Hàm -----------------
+         //1. Hàm ko có tham số
+         function sayHello(){
+            console.log("Xin chào các bạn");
+         }
+         sayHello();
+         //2. hàm có tham số nhưng ko trả về giá trị
+         function showMessage(name){
+            console.log("Chào "+name+"!");
+         }
+         showMessage("Minh");
+         //3. Hàm có tham số nhưng trả về giá trị
+         function tinhTong(a,b){
+            return a+b;
+         }
+         var tong = tinhTong(2,3);
+         console.log("Tính tổng: "+ tong);
+    </script>
+</body>
+</html>

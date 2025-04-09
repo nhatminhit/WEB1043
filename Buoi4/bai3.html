@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dongho"></div>
+    <script type="text/javascript">
+        var now = new Date();
+        // ngày tháng năm
+        var d = now.getDay();
+        var m = now.getMonth();
+        var y = now.getFullYear();
+        // giờ phút giây
+        var ho = now.getHours();
+        var mu = now.getMinutes();
+        var se = now.getSeconds();
+        //hiển thị
+        document.getElementById("dongho").innerHTML=d+"/"+m+"/"+y+
+        " và "+ho+":"+mu+":"+se;
+        location.reload()
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = Number(prompt("Nhập a: "));
+        var b = Number(prompt("Nhập b: "));
+        var tt = prompt("Nhập toán tử (+,-,*,/): ");
+        let kq;
+        switch(tt){
+            case '+':{
+                kq = a+b;
+                document.write("Tổng "+kq);
+                break;
+            }
+            case '-':{
+                kq = a-b;
+                document.write("Hiệu "+kq);
+                break;
+            }
+            case '*':{
+                kq = a*b;
+                document.write("Tích "+kq);
+                break;
+            }
+            case '/':{
+                kq = a/b;
+                document.write("Thương "+kq);
+                break;
+            }
+            default:
+                document.write(tt+"Không phải là toán tử hợp lệ!");
+        }
+    </script>
+</body>
+</html>

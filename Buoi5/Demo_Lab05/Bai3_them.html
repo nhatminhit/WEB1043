@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="baithem.css">
+</head>
+
+<body>
+    <h2>Tạo check và uncheck all</h2>
+    <table border='1' cellspacing='0' cellpadding='15'>
+        <tr style="font-weight: bold">
+            <td><input type='checkbox' name='name' id='check_all' value='' /></td>
+            <td>Trần thị Huệ</td>
+        </tr>
+        <tr style="font-weight: bold">
+            <td><input type='checkbox' name='name' id='check_all' value='' /></td>
+            <td>Trần Thị Loan</td>
+        </tr>
+        <tr style="font-weight: bold">
+            <td><input type='checkbox' name='name' id='check_all' value='' /></td>
+            <td>Nguyễn Mai Linh</td>
+        </tr>
+        <tr style="font-weight: bold">
+            <td><input type='checkbox' name='name' id='check_all' value='' /></td>
+            <td>Lê Thị Trà My</td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <input class="a" type="button" id="btn1" value="Chọn hết" />
+    <input class="a" type="button" id="btn2" value="Bỏ chọn" />
+
+
+    <script>
+
+        // Chức năng chọn hết
+        document.getElementById("btn1").onclick = function () {
+            // Lấy danh sách checkbox
+            var checkboxes = document.getElementsByName('name');
+
+            // Lặp và thiết lập checked
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+        };
+
+        // Chức năng bỏ chọn hết
+        document.getElementById("btn2").onclick = function () {
+            // Lấy danh sách checkbox
+            var checkboxes = document.getElementsByName('name');
+
+            // Lặp và thiết lập Uncheck
+            for (var i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+        };
+
+    </script>
+</body>
+
+</html>

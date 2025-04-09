@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sv.hienthi()">Hiển thị</button>
+    <script type="text/javascript">
+        //tạo 1 đối tượng để lưu thông tin sinh viên
+        var sv = new Object();
+        sv.hoTen = prompt("Họ và tên: ");
+        sv.diemThi = prompt("Điểm thi: ");
+        //hiển thih thông tin sinh viên và học lực của sv
+        sv.hienthi = function(){
+            sv.hocLuc;
+            if(this.diemThi>=5)
+            this.hocLuc = "Qua môn";
+            else this.hocLuc ="Trượt";
+        document.write("Họ và tên: "+this.hoTen+"</br>"); 
+        document.write("Điểm TB: "+this.diemThi+"</br>"); 
+        document.write("Học lực: "+this.hocLuc);
+        }
+    </script>
+</body>
+</html>

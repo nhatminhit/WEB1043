@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Demo Obj");
+        // khai báo Object
+        let tenObject = {
+            thuoctinh1:"Giá trị 1",
+            thuoctinh2:"Giá trị 2",
+            phuongthuc: function(){
+                console.log("Đây là phương thức");
+            }
+        }
+        //in ra thông tin Object
+        console.log(tenObject);
+        // gọi hàm hay phương thức của Object
+        tenObject.phuongthuc();
+        //gọi đến thuộc tính
+        console.log(tenObject.thuoctinh1);
+
+        // khai báo 3 obj sinh viên
+        let sv1 = {
+            ten:"Nguyễn Văn A",
+            namSinh:"2000",
+            diaChi:"HN"
+        }
+        let sv2 = {
+            ten:"Nguyễn Văn B",
+            namSinh:"2002",
+            diaChi:"HN"
+        }
+        let sv3 = {
+            ten:"Nguyễn Văn C",
+            namSinh:"2001",
+            diaChi:"HN"
+        }
+        // tạo 1 mảng chưa 3 obj sinh viên
+        let svArr=[sv1,sv2,sv3];
+        console.log("In mảng"+svArr);
+        // duyệt các giá trị thuộc tính của đối tượng
+        for(let thuoctinh in sv1)
+        {
+            // in ra tên thuộc tính
+            console.log(thuoctinh);
+            // in ra các giá trị thuộc tính
+            console.log(sv1[thuoctinh]);
+        }
+        // đổi giá trị thuộc tính
+        sv1.diaChi = "Quất Lâm";
+        console.log(sv1);
+
+        // duyệt qua tất cả giá trị của 1 mảng object
+        for(let sinhVien of svArr){
+            // in giá trị của từng phần tử trong mảng
+            console.log(sinhVien);
+            // in ra giá trị địa chỉ của sv
+            console.log(sinhVien.diaChi);
+        }
+    </script>
+</body>
+</html>

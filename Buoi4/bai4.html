@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="mo" value="open" onclick="motrang()">Mở cửa sổ</button>
+    <button id="dong" value="close" onclick="dongtrang()">Đóng cửa sổ mới</button>
+    <button id="kt" value="check" onclick="ktra()">Kiểm tra</button>
+    <script>
+        var wd;
+        // mở
+        function motrang(){
+            wd = window.open("https://ap.poly.edu.vn/");
+        }
+        // đóng trang
+        function dongtrang(){
+            if(wd.closed == false){
+                wd.close();
+            }
+        }
+        // kiểm tra
+        function ktra(){
+            if(wd.closed == false){
+                alert("Cửa sổ đang mở");
+                wd.close();
+            }else alert("Ko còn cửa sổ chưa đóng");
+        }
+    </script>
+</body>
+</html>

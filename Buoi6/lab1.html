@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Đăng Ký</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: green;
+            margin-top: 20px;
+        }
+
+        form {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        .required {
+            color: red;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .inline-input {
+            display: inline-block;
+            width: 30%;
+            padding: 5px;
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        .form-result {
+            margin-top: 20px;
+            padding: 20px;
+            /* background-color: #fff; */
+            border-radius: 5px;
+            width: 500px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Form Đăng Ký</h2>
+<form name="myform" onsubmit="return validateForm()">
+    <div class="form-group">
+        <label for="name">Họ và Tên <span class="required">*</span>:</label>
+        <input type="text" name="name">
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email <span class="required">*</span>:</label>
+        <input type="email" name="email">
+    </div>
+    
+    <div class="form-group">
+        <label for="user">User <span class="required">*</span>:</label>
+        <input type="text" name="user">
+    </div>
+    
+    <div class="form-group">
+        <label for="pass">Mật khẩu <span class="required">*</span>:</label>
+        <input type="password" name="pass">
+    </div>
+    
+    <div class="form-group">
+        <label for="repass">Gõ lại mật khẩu <span class="required">*</span>:</label>
+        <input type="password" name="repass">
+    </div>
+    
+    <div class="form-group">
+        <label for="phone">Số điện thoại <span class="required">*</span>:</label>
+        <input type="text" name="phone">
+    </div>
+    
+    <div class="form-group">
+        <label for="day">Ngày sinh <span class="required">*</span>:</label>
+        <div class="inline-input">
+            Ngày: <input type="number" name="day" min="1" max="31">
+        </div>
+        <div class="inline-input">
+            Tháng: <input type="number" name="month" min="1" max="12">
+        </div>
+        <div class="inline-input">
+            Năm: <input type="number" name="year" min="1900">
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="gender">Giới tính <span class="required">*</span>:</label>
+        <input type="radio" name="gender" value="Nam"> Nam
+        <input type="radio" name="gender" value="Nữ"> Nữ
+    </div>
+    
+    <div class="form-group">
+        <label for="hobbies">Sở thích:</label>
+        <input type="checkbox" name="hobbies" value="Đọc sách"> Đọc sách
+        <input type="checkbox" name="hobbies" value="Xem phim"> Xem phim
+        <input type="checkbox" name="hobbies" value="Đá Bóng"> Đá bóng
+    </div>
+    
+    <div class="form-group">
+        <button type="submit">Đăng ký</button>
+    </div>
+</form>
+
+<div id="result" class="form-result">
+    <div id="resultContent"></div>
+</div>
+
+<script type="text/javascript">
+    function validateForm() {
+        // Kiểm tra Họ và Tên
+        if (document.myform.name.value == "") {
+            alert("Phải nhập họ và tên");
+            return false;
+        }
+
+        // Kiểm tra Email
+        if (document.myform.email.value == "") {
+            alert("Phải nhập email");
+            return false;
+        }
+
+        // Kiểm tra User (chỉ chữ và số)
+        var user = document.myform.user.value;
+        var userPattern = /^[A-Za-z0-9_]+$/; // Chỉ chữ, số và dấu gạch dưới
+        if (user == "" || !userPattern.test(user)) {
+            alert("User chỉ chứa chữ cái, số và dấu _");
+            return false;
+        }
+
+        // Kiểm tra Mật khẩu và Gõ lại mật khẩu
+        var pass = document.myform.pass.value;
+        var repass = document.myform.repass.value;
+        if (pass == "" || pass.length < 6) {
+            alert("Mật khẩu phải có ít nhất 6 ký tự");
+            return false;
+        }
+        if (pass != repass) {
+            alert("Mật khẩu và Gõ lại mật khẩu không khớp");
+            return false;
+        }
+
+        // Kiểm tra Số điện thoại (giữ nguyên biểu thức chính quy của bạn)
+        var phone = document.myform.phone.value;
+        var sdt = new RegExp("0\\d{9}", "g"); // Số điện thoại phải có 10 số và bắt đầu bằng 0
+        if (phone == "" || !phone.match(sdt)) {
+            alert("Số điện thoại phải có 10 số và bắt đầu bằng 0");
+            return false;
+        }
+
+        // Kiểm tra Ngày sinh
+        if (document.myform.day.value == "" || document.myform.month.value == "" || document.myform.year.value == "") {
+            alert("Ngày sinh không được để trống");
+            return false;
+        }
+
+        // Kiểm tra Giới tính
+        var gender = document.querySelector('input[name="gender"]:checked');
+        if (!gender) {
+            alert("Vui lòng chọn giới tính");
+            return false;
+        }
+
+        // Hiển thị thông tin đã đăng ký
+        var resultContent = "<h3>Thông tin bạn đã đăng ký:</h3>" +
+            "<p><strong>Họ và Tên:</strong> " + document.myform.name.value + "</p>" +
+            "<p><strong>Email:</strong> " + document.myform.email.value + "</p>" +
+            "<p><strong>User:</strong> " + document.myform.user.value + "</p>" +
+            "<p><strong>Số điện thoại:</strong> " + document.myform.phone.value + "</p>" +
+            "<p><strong>Ngày sinh:</strong> " + document.myform.day.value + "/" + document.myform.month.value + "/" + document.myform.year.value + "</p>" +
+            "<p><strong>Giới tính:</strong> " + gender.value + "</p>";
+        document.getElementById("resultContent").innerHTML = resultContent;
+        return false;  // Ngừng gửi form
+    }
+</script>
+
+</body>
+</html>

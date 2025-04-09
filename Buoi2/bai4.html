@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // - Cho mảng sau const theList = ['Lauren', 'Kevin',true,35,null,undefined,[
+        // 'one', 'two']];
+        // - Xoá phần tử đầu tiên và phần tử cuối cùng của mảng
+        // - Thêm 'FIRST' vào đầu mảng
+        // - Thêm 'hello world' vào vị trí thứ 4 của mảng
+        // - Thêm 'middle' vào vị trí thứ 3 của mảng
+        // - Thêm 'LAST' vào cuối mảng
+        // - Xuất kết quả
+        const theList = ['Lauren', 'Kevin',true,35,null,undefined,['one', 'two']];
+        console.log(theList);
+        //Xóa phần tử đầu tiên
+        theList.shift();
+        //Xóa phần tử cuối cùng
+        theList.pop();
+        //Thêm phần tử vào đầu mảng
+        theList.unshift('FIRST');
+        //Thêm phần tử vào cuối mảng
+        theList.push('LAST');
+        // //Thêm phần tử hello world vào vị trí 4 của mảng
+        theList.splice(3,0,'Hello world');
+        //Thêm phần tử middle vào vị trí 3 của mảng
+        theList.splice(2,0,'middle');
+        console.log(theList);
+    </script>
+</body>
+</html>

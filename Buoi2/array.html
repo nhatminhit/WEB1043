@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const theList = ['Lauren', 'Kevin',true,35,null,'Lauren',undefined,['one', 'two']];
+        // lấy độ dài mảng
+        document.write("Độ dài của chuỗi là: "+ theList.length);
+        //index of(value)
+        // trả về vị trí đầu tiên mà phần tử xuất hiện trong mảng, nếu mà trả ra -1 thì là phần tử ko tồn tại
+        console.log(theList.indexOf('Lauren'));
+        // lastIndexOf(value)
+        // trả về vị trí cuối cùng mà phần tử xuất hiện trong mảng, nếu mà trả ra -1 thì ko tồn tại phần tử
+        console.log(theList.lastIndexOf('Lauren'));
+    </script>
+</body>
+</html>

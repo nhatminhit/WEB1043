@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function soSanh() {
+            let n = prompt("Nhập số:");
+            if (n === null) return;
+            let user = parseInt(n);
+            let random = Math.floor(Math.random() * 100);
+        if (user === random) {
+            alert("Trùng! Bạn: " + user + ", Máy: " + random);
+        } else {
+            alert("Không trùng! Bạn: " + user + ", Máy: " + random);
+            if (confirm("Thử lại?")) soSanh();
+            }
+        }
+        soSanh();
+    </script>
+</body>
+</html>

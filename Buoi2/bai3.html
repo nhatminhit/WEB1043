@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var cannang = prompt("Nhập cân nặng của bạn: ");
+        var chieucao = prompt("Nhập chiều của bạn: ");
+        var bmi = cannang/(chieucao*chieucao);
+        document.write("chỉ số BMI của bạn: "+bmi+"<br>");
+        if(bmi<18.5){
+            document.write("Thiếu cân");
+        } else if(bmi>18.5 && bmi<=24.99){
+            document.write("Bình thường");
+        } else if(bmi>25&&bmi<=29.99){
+            document.write("Thừa cân");
+        } else{
+            document.write("Béo phì");
+        }
+    </script>
+</body>
+</html>

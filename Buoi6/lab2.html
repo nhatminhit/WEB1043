@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Mua</title>
+</head>
+<body>
+    <form name="orderform" onsubmit="return kiem_tra()">
+        <table border="1">
+            <tr>
+                <td>Sản phẩm: <span style="color:red">*</span></td>
+                <td><input type="text" id="san_pham" name="san_pham"></td>
+            </tr>
+            <tr>
+                <td>Đơn giá: <span style="color:red">*</span></td>
+                <td><input type="text" id="don_gia" name="don_gia"></td>
+            </tr>
+            <tr>
+                <td>Loại sản phẩm: <span style="color:red">*</span></td>
+                <td>
+                    <select id="loai" name="loai">
+                        <option value="">Chọn loại</option>
+                        <option value="1">Sản phẩm A</option>
+                        <option value="2">Sản phẩm B</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Nơi nhận hàng: <span style="color:red">*</span></td>
+                <td>
+                    <input type="radio" name="dia_chi" onclick="hien_thi(true)"> Ngoại thành
+                    <input type="radio" name="dia_chi" onclick="hien_thi(false)"> Nội thành
+                </td>
+            </tr>
+            <tr id="phi_vc" style="display:none;">
+                <td>Phí vận chuyển: </td>
+                <td><input type="text" name="phi_vc" readonly value="100,000"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Đặt mua"></td>
+            </tr>
+        </table>
+    </form>
+
+    <script type="text/javascript">
+        // Hàm để hiển thị/ẩn phí vận chuyển
+        function hien_thi(isVisible) {
+            var phi_vc = document.getElementById("phi_vc");
+            phi_vc.style.display = isVisible ? "" : "none";  // Hiển thị hoặc ẩn phí vận chuyển
+        }
+
+        // Kiểm tra các điều kiện trước khi gửi form
+        function kiem_tra() {
+            // Kiểm tra sản phẩm
+            var sp = document.getElementById("san_pham");
+            if (sp.value === "") {
+                alert("Vui lòng nhập tên sản phẩm!");
+                return false;
+            }
+
+            // Kiểm tra đơn giá (phải là số dương)
+            var gia = document.getElementById("don_gia");
+            if (isNaN(gia.value) || parseFloat(gia.value) <= 0) {
+                alert("Đơn giá phải là số dương!");
+                return false;
+            }
+
+            // Kiểm tra loại sản phẩm
+            var loai = document.getElementById("loai");
+            if (loai.value === "") {
+                alert("Vui lòng chọn loại sản phẩm!");
+                return false;
+            }
+
+            // Kiểm tra nơi nhận hàng (phải chọn một trong hai)
+            var radios = document.getElementsByName("dia_chi");
+            if (!radios[0].checked && !radios[1].checked) {
+                alert("Vui lòng chọn nơi nhận hàng!");
+                return false;
+            }
+
+            // Hiển thị thông báo thành công
+            alert("Chúc mừng bạn đã nhập đúng thông tin!");
+            return true;
+        }
+    </script>
+</body>
+</html>

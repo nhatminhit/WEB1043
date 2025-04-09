@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform" onsubmit="return(kiemtra())">
+        <table border="1">
+            <tr>
+                <td>Họ và Tên: </td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Số điện thoại: </td>
+                <td><input type="text" name="phone"></td>
+            </tr>
+            <tr>
+                <td>Khóa học: </td>
+                <td>
+                    <select name="khoahoc" onchange="updateHocPhi()">
+                        <option value="">Chọn khóa học</option>
+                        <option value="1">HTML</option>
+                        <option value="2">CSS</option>
+                        <option value="3">JS</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Học phí</td>
+                <td><input type="text" name="hocphi" readonly></td>
+            </tr>
+            <tr>
+                <td>Hình thức học</td>
+                <td>
+                    <input type="radio" name="hinhthuc"> Tại Trường
+                    <input type="radio" name="hinhthuc"> Học Online
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="ĐĂNG KÝ"></td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+        function kiemtra(){
+            //kiểm tra họ và tên
+            if(document.myform.name.value == ""){
+                alert("Phải nhập họ và tên");
+                document.myform.name.focus();
+                return false;
+            }
+            //kiểm tra email ko trống và có @ và .
+            if(document.myform.email.value == ""){
+                alert("Phải nhập đúng định dạng email")
+                document.myform.email.focus();
+                return false;
+            }
+            // kiểm tra số điện thoại ko trống và có số 0 đầu tiên cùng 10 số
+            var phone = document.myform.phone.value; // lấy giá trị phone mà người dùng nhập
+            var sdt = new RegExp("0\\d{9}","g"); // biểu thức chính quy sẽ kiểm tra số điện thoại có phải số đầu là số 0 hay ko và số điện thoại phải có 10 số
+            if(document.myform.phone.value == "" || !phone.match(sdt)){
+                alert("Phone ko được để trống và 10 số có số 0 đứng đầu");
+                document.myform.phone.focus();
+                return false;
+            }
+            //kiểm tra khóa học ko được rỗng
+            if(document.myform.khoahoc.value == ""){
+                alert("Khóa học ko được để trống");
+                document.myform.khoahoc.focus();
+                return false;
+            }
+            //kiểm tra hình thức học
+            if(!document.myform.hinhthuc[0].checked && !document.myform.hinhthuc[1].checked){
+                alert("Phải chọn hình thức học");
+                return false;
+            }
+            return (true);
+        }
+        function updateHocPhi(){
+            var hocphi = document.myform.hocphi;
+            var khoahoc = document.myform.khoahoc.value;
+            if(khoahoc == "1"){
+                hocphi.value = 500;
+            } else if(khoahoc == "2"){
+                hocphi.value = 800;
+            } else if(khoahoc == "3"){
+                hocphi.value = 1000;
+            } else hocphi.value = ""
+        }
+    </script>
+</body>
+</html>

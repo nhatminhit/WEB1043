@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        //tạo đối tượng
+        function item(name,model,cost,quantity){
+            this.name = name;
+            this.model = model;
+            this.cost = cost;
+            this.quantity = quantity
+        }
+        //tạo mảng
+        item[0] = new item("ss","Samsung",17000,9);
+        item[1] = new item("nk","Nokia",5000,6);
+        item[2] = new item("ip","Iphone",21000,10);
+        //hiển thị mảng
+        for(var x in item){
+            console.log(item[x]);
+        }
+        //truy xuất giá trị quantity của object
+        item[2].quantity;
+        console.log( item[2].quantity);
+    </script>
+</body>
+</html>

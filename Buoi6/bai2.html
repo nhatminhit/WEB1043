@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform" onsubmit="return(kiemtra())">
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" name="pass"></td>
+            </tr>
+            <tr>
+                <td>Re password: </td>
+                <td><input type="password" name="repass"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+        function kiemtra(){
+            //kiểm tra name trống
+            if(document.myform.name.value == "")
+            {
+                alert("Phải nhập họ và tên");
+                document.myform.name.focus();
+                return false;
+            }
+            //kiểm tra email trống
+            if(document.myform.email.value == "")
+            {
+                alert("Phải nhập email theo đúng định dạng");
+                document.myform.email.focus();
+                return false;
+            }
+            //kiểm tra password trống và có tối thiểu 8 ký tự
+            if(document.myform.pass.value == "" || document.myform.pass.value.length < 8)
+            {
+                alert("Phải nhập password tối thiểu 8 ký tự");
+                document.myform.pass.focus();
+                return false;
+            }
+            //kiểm tra repassword trống và phải trùng với password
+            if(document.myform.repass.value == "" || document.myform.repass.value != document.myform.pass.value)
+            {
+                alert("Phải nhập trùng với password bên trên");
+                document.myform.repass.focus();
+                return false;
+            }
+            return (true);
+        }
+    </script>
+</body>
+</html>

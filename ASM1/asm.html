@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="sta()">
+    <img src="img/0.JPG" id="anh" alt="">
+    <hr>
+    <input type="button" value="Fisrt" onclick="fir()">
+    <input type="button" value="Last" onclick="last()">
+    <input type="button" value="Previous" onclick="pre()">
+    <input type="button" value="Next" onclick="next()">
+    <input type="button" value="Start" onclick="sta()">
+    <input type="button" value="Stop" onclick="sto()">
+    <script type="text/javascript">
+        //phần chung
+        var img = [];
+        var index = 0;
+        for(var i = 0;i<6;i++){
+            img[i] = new Image(); // khởi tạo đối tượng
+            img[i].src = "img/"+i+".JPG";
+        }
+        //first
+        function fir(){
+            index = 0;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+        }
+        //last
+        function last(){
+            index = img.length -1;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+        }
+        //pre
+        function pre(){
+            index --;
+            if(index<0) index = img.length-1;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+        }
+        //next
+        function next(){
+            index++;
+            if(index>=img.length) index = 0;
+            var anh = document.getElementById("anh");
+            anh.src = img[index].src;
+        }
+        //start
+        function sta(){
+            t = setInterval("next()",1000);
+        }
+        //stop
+        function sto(){
+            clearInterval(t);
+        }
+    </script>
+</body>
+</html>
