@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <h2>BÁN HÀNG</h2>
+    <select id="gia" class="gia">
+        <option value="0">Chọn mức giá</option>
+        <option value="1">Dưới 400</option>
+        <option value="2">Từ 400 đến dưới 700</option>
+    </select>
+    <hr>
+    <div class="bang">
+        <table border="1" id="sp" onclick="tongtien()" align="center">
+            <tr>
+                <td><input type="checkbox" id="checkbox_all" onclick="selectAll()"></td>
+                <th>Hàng Hóa</th>
+                <th>Đơn Giá</th>
+                <th>Số Lượng</th>
+                <th>Thành Tiền</th>
+            </tr>
+            <tr class="muc2">
+                <td><input type="checkbox" id="checkbox1" onclick="hienthi1()"></td>
+                <td>Iphone</td>
+                <td>700</td>
+                <td><input type="number" id="ip"></td>
+                <td id="ttip"></td>
+            </tr>
+            <tr class="muc2">
+                <td><input type="checkbox" id="checkbox2" onclick="hienthi2()"></td>
+                <td>Samsung</td>
+                <td>400</td>
+                <td><input type="number" id="ss"></td>
+                <td id="ttss"></td>
+            </tr>
+            <tr class="muc1">
+                <td><input type="checkbox" id="checkbox3" onclick="hienthi3()"></td>
+                <td>Nokia</td>
+                <td>100</td>
+                <td><input type="number" id="nk"></td>
+                <td id="ttnk"></td>
+            </tr>
+            <tr class="muc2">
+                <td><input type="checkbox" id="checkbox4" onclick="hienthi4()"></td>
+                <td>Sony</td>
+                <td>450</td>
+                <td><input type="number" id="sn"></td>
+                <td id="ttsn"></td>
+            </tr>
+            <tr class="muc1">
+                <td><input type="checkbox" id="checkbox5" onclick="hienthi5()"></td>
+                <td>Motorola</td>
+                <td>180</td>
+                <td><input type="number" id="mt"></td>
+                <td id="ttmt"></td>
+            </tr>
+            <tr class="muc2">
+                <td><input type="checkbox" id="checkbox6" onclick="hienthi6()"></td>
+                <td>Oppo</td>
+                <td>600</td>
+                <td><input type="number" id="op"></td>
+                <td id="ttop"></td>
+            </tr>
+            <tr class="muc1">
+                <td><input type="checkbox" id="checkbox7" onclick="hienthi7()"></td>
+                <td>Bphone</td>
+                <td>90</td>
+                <td><input type="number" id="bp"></td>
+                <td id="ttbp"></td>
+            </tr>
+            <tr>
+                <th colspan="4">Tổng thành tiền</th>
+                <th id="tongtien"></th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function hienthi1(){
+            var ip = document.getElementById("ip");
+            var ttip = 700*ip.value;
+            document.getElementById("ttip").innerText = +ttip;
+            tongtien();
+        }
+        function hienthi2(){
+            var ss = document.getElementById("ss");
+            var ttss = 400*ss.value;
+            document.getElementById("ttss").innerText = +ttss;
+            tongtien();
+        }
+        function hienthi3(){
+            var nk = document.getElementById("nk");
+            var ttnk = 100*nk.value;
+            document.getElementById("ttnk").innerText = +ttnk;
+        }
+        function hienthi4(){
+            var sn = document.getElementById("sn");
+            var ttsn = 450*sn.value;
+            document.getElementById("ttsn").innerText = +ttsn;
+        }
+        function hienthi5(){
+            var mt = document.getElementById("mt");
+            var ttmt = 180*mt.value;
+            document.getElementById("ttmt").innerText = +ttmt;
+        }
+        function hienthi6(){
+            var op = document.getElementById("op");
+            var ttop = 600*op.value;
+            document.getElementById("ttop").innerText = +ttop;
+        }
+        function hienthi7(){
+            var bp = document.getElementById("bp");
+            var ttbp = 90*bp.value;
+            document.getElementById("ttbp").innerText = +ttbp;
+        }
+        // hàm tính tổng tiền
+        function tongtien(){
+            var ip = document.getElementById("ip").value;
+            var ss = document.getElementById("ss").value;
+            var nk = document.getElementById("nk").value;
+            var sn = document.getElementById("sn").value;
+            var mt = document.getElementById("mt").value;
+            var op = document.getElementById("op").value;
+            var bp = document.getElementById("bp").value;
+            var tong = 0;
+            if(document.getElementById("checkbox1").checked){
+                tong+=700*ip;
+            }
+            if(document.getElementById("checkbox2").checked){
+                tong+=400*ss;
+            }
+            if(document.getElementById("checkbox3").checked){
+                tong+=100*nk;
+            }
+            if(document.getElementById("checkbox4").checked){
+                tong+=450*sn;
+            }
+            if(document.getElementById("checkbox5").checked){
+                tong+=180*mt;
+            }
+            if(document.getElementById("checkbox6").checked){
+                tong+=600*op;
+            }
+            if(document.getElementById("checkbox7").checked){
+                tong+=90*bp;
+            }
+            document.getElementById("tongtien").innerText = tong;
+        }
+        //selected all: hàm chọn tất cả
+        function selectAll(){
+            //lấy tất cả các input
+            var checkboxes = document.getElementsByTagName('input');
+            //kiểm tra các check box được chọn
+            var checkAll = document.getElementById("checkbox_all").checked;
+            // duyệt qua tất cả các input để kiểm tra loại checkbox
+            for(var i =0 ;i<checkboxes.length;i++){
+                if(checkboxes[i].type == 'checkbox'){
+                    // cập nhật trạng thái của từng check box
+                    checkboxes[i].checked = checkAll;
+                }
+            }
+            tongtien(); // tính lại tổng tiền sau khi thay đổi
+        }
+    </script>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        // Khi trang đã tải xong
+        $(document).ready(function() {
+    
+            // Bắt sự kiện khi dropdown #gia thay đổi giá trị
+            $('#gia').change(function() {
+                // Lấy giá trị được chọn trong dropdown (0, 1 hoặc 2)
+                var val = $(this).val();
+    
+                // Duyệt qua từng dòng <tr> trong bảng có id="sp"
+                $('#sp tr').each(function(index, tr) {
+    
+                    // Lấy nội dung ở cột đơn giá (cột thứ 3) trong dòng hiện tại
+                    var price = $(tr).find('td:eq(2)').text();
+    
+                    // Nếu chọn "Chọn mức giá" (value = 0) thì hiển thị tất cả
+                    if (val == 0) {
+                        $('tr').show(); // Hiển thị tất cả các dòng (gồm cả dòng tiêu đề)
+                    }
+    
+                    // Nếu chọn "Dưới 400" (value = 1)
+                    else if (val == 1 && price <= 400) {
+                        $('.muc1').show(); // Hiện các dòng có class "muc1" (giá < 400)
+                        $('.muc2').hide(); // Ẩn các dòng có class "muc2"
+                    }
+    
+                    // Nếu chọn "Từ 400 đến dưới 700" (value = 2)
+                    else if (val == 2 && price >= 450 && price <= 700) {
+                        $('.muc1').hide(); // Ẩn các dòng có class "muc1"
+                        $('.muc2').show(); // Hiện các dòng có class "muc2"
+                    }
+    
+                });
+            });
+        });
+    </script>
+</body>
+</html>
